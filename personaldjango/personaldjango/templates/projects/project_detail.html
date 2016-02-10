@@ -4,7 +4,7 @@
     <a href="{% url 'index' %}">Back to Project List</a>
     <h3>{{ project.title|capfirst }}</h3>
     <p>{{ project.description }}</p>
-    <img src="{{MEDIA_URL}}{{ project.image }}" alt="image {{project.id}} picture">
-    <a href="{{ project.url}}">Link to Project</a>
+    <img src="{{ project.image.url }}" alt="project {{project.id}} picture">
+    <a href="{{ project.project_url}}">Link to Project</a>
 
 {% endblock %}

@@ -1,25 +1,11 @@
+.navbar {
+  margin: 0 auto;
+}
+
 .hero {
   width: 100%;
   height: 600;
-  position: relative;
   margin: 0 auto;
-  background-color: #6f9efb;
-}
-
-#splash{
-  font-size: 10em;
-  font-family: 'Exo 2', sans-serif;
-  font-stretch: extra-condensed;
-  position: absolute;
-  left: 10px;
-  top: 200px;
-  color: #ffc824;
-  background-color: rgba(#010074, 0.2);
-  border: solid white 5px;
-  border-radius: 15px;
-}
-#splash:hover {
-  background-color:rgba(181, 222, 255, 0.5);;
 }
 
 .scroll {

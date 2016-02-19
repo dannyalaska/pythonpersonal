@@ -7,10 +7,16 @@
   <meta charset="UTF-8">
   <title>Danny McGrory</title>
   <link rel="stylesheet" href="{% static 'main.css' %}">
+  <link href='https://fonts.googleapis.com/css?family=Exo+2:900' rel='stylesheet' type='text/css'>
   <script src="{% bootstrap_jquery_url %}"></script>
   {% bootstrap_javascript %}
 </head>
   <body>
+    <div id="landing">
+      <img class="hero" src="{{ splash.image.url }}" alt="{{ splash.title }}">
+      <h1 id="splash">Danny!</h1>
+
+    </div>
     {% block content %}
     {% endblock content %}
     <script src="{% static 'main.js' %}"></script>

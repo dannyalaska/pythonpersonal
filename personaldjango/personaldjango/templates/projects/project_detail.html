@@ -2,7 +2,8 @@
 
 {% block content %}
     <a href="{% url 'index' %}">Back to Project List</a>
-    <h3>{{ project.title|capfirst }}</h3>
+    <h2>{{ project.title|capfirst }}</h2>
+    <h4>Languages Used: {{project.languages|upper}}</h4>
     <p>{{ project.description }}</p>
     <img src="{{ project.image.url }}" alt="project {{project.id}} picture">
     <a href="{{ project.project_url}}">Link to Project</a>

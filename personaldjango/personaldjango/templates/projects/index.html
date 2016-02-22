@@ -1,17 +1,17 @@
 {% extends "base.html" %}
-
-{% block content %}
-<div class="col-xl-12 text-center">
-  <h1>My Projects!</h1>
-</div>
-{% for project in projects %}
-<div class="col-sm-3">
+  {% block content %}
+  <div id="content">
+  <div class="col-xl-12 text-center">
+    <h1>My Projects!</h1>
+  </div>
+  {% for project in projects %}
+  <div class="col-sm-3">
     <marquee  scrollamount="8" onmouseover="this.stop()" onmouseout="this.start()">
       <a href="{% url 'project_detail' project.id %}">
         <img class="scroll" src="{{ project.image.url }}" alt="">
       </a>
     </marquee>
+  </div>
+  {% endfor %}
 </div>
-{% endfor %}
-
-{% endblock %}
+  {% endblock %}

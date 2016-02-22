@@ -1,3 +1,23 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.landing {
+  font-size: 16px;
+  height: 425px;
+  max-width: 1500px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+
+.landing .landing_data {
+  display: none;
+}
+
 .navbar {
   margin: 0 auto;
 }
@@ -11,4 +31,10 @@
 .scroll {
   height: 200px;
   width: 200px;
+}
+
+#content {
+  position: absolute;
+  width: 100%;
+  background-color: black;
 }

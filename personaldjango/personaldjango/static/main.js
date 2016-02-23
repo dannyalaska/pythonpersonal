@@ -53,6 +53,16 @@ function landingAdvance() {
 
   if( landingVars.timePassed == landingVars.timeToChange ) {
     landingVars.timePassed = 0;
+
+    if( landingVars.autoPlay == true ){
+      if( landingVars.currentPanel == landingVars.totalPanels ){
+        $('.landing_nav div:nth-child(1)').trigger('click');
+      } else {
+        $('.landing_nav div:nth-child('+(landingVars.currentPanel+1)+')').trigger('click');
+      }
+
+    }
+
   } else {
     landingVars.timePassed += 1;
   }
@@ -66,7 +76,7 @@ function landingMultiPanel() {
   $('.landing').html('').append(newHtml);
 
   for (var i = 0; i < landingVars.totalPanels; i++) {
-    $('.landing_nav').append('<div>x</div>');
+    $('.landing_nav').append('<div></div>');
   }
 
   $('.landing').hover(function(){
@@ -76,15 +86,28 @@ function landingMultiPanel() {
     landingVars.timePassed = Math.floor(landingVars.timeToChange / 2);
   });
 
-  $('.landing_nav div').on('click', function(){
-    var navClicked = $(this).index();
-    landingVars.currentPanel = navClicked + 1;
 
-    $('.landing_stage_large').append('<div class="landing_container_2" style="opacity:0;"></div>');
-    $('.landing_container_2').html(landingVars.panelContent[navClicked]).animate({opacity:1}, landingVars.duration, function(){
-      $('.landing_container_1').remove();
-      $(this).addClass('landing_container_1').removeClass('landing_container_2');
-    });
+  $('.landing_nav div').on('click', function(){
+    // show which item is selected in landing image navigation
+  if ( !landingVars.inTransition ){
+
+        landingVars.inTransition == true;
+
+        var navClicked = $(this).index();
+        landingVars.currentPanel = navClicked + 1;
+
+        $('.landing_nav div').removeClass('selected');
+        $(this).addClass('selected');
+
+        $('.landing_stage_large').append('<div class="landing_container_2" style="opacity:0;"></div>');
+        $('.landing_container_2').html(landingVars.panelContent[navClicked]).animate({opacity:1}, landingVars.duration, function(){
+          $('.landing_container_1').remove();
+          $(this).addClass('landing_container_1').removeClass('landing_container_2');
+          landingVars.inTransition == false;
+      });
+
+    }
+
   });
 
   $('.landing_nav div:first').trigger('click');

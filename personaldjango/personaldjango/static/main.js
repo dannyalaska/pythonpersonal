@@ -48,6 +48,8 @@ function landingAdvance() {
   if( currentSize != newSize ){
     if( landingVars.screenSize == 'large' ){
       landingMultiPanel();
+    } else {
+      landingSinglePanel();
     }
   }
 
@@ -87,8 +89,30 @@ function landingMultiPanel() {
   });
 
 
+  // click events for navigation left and right buttons
+  $('.landing .btn').on('click', function(){
+    if( !landingVars.inTransition ){
+      // figure out which panel we have currently
+      if( $(this).hasClass('prev') ){
+        landingVars.currentPanel -= 1;
+        if( landingVars.currentPanel < 1 ){
+          landingVars.currentPanel = landingVars.totalPanels;
+        }
+      } else {
+        landingVars.currentPanel += 1;
+        if ( landingVars.currentPanel > landingVars.totalPanels ){
+          landingVars.currentPanel = 1;
+        }
+      }
+
+      $('.landing_nav div:nth-child('+landingVars.currentPanel+')').trigger('click');
+    }
+  });
+
+
+
+  // show which item is selected in landing image navigation
   $('.landing_nav div').on('click', function(){
-    // show which item is selected in landing image navigation
   if ( !landingVars.inTransition ){
 
         landingVars.inTransition == true;
@@ -111,5 +135,14 @@ function landingMultiPanel() {
   });
 
   $('.landing_nav div:first').trigger('click');
+
+}
+
+function landingSinglePanel(){
+
+  //replace large stage with small stage for small screens and change image accordingly
+  $('.landing').html('').append('<div class="landing_stage_small">'+landingVars.panelContent[0]+'</div>');
+  var panel_image_s = $('.landing .landing_stage_small .landing_panel').attr('data-image-s');
+  $('.landing .landing_stage_small .landing_panel').css('background-image', 'url('+panel_image_s+')');
 
 }

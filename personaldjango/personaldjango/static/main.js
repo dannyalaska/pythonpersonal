@@ -42,6 +42,7 @@ function landingAdvance() {
   } else {
     var newSize = 'small';
   }
+
   landingVars.screenSize = newSize;
 
   if( currentSize != newSize ){
@@ -61,6 +62,31 @@ function landingAdvance() {
 function landingMultiPanel() {
   landingVars.timePassed = 0;
   landingVars.autoPlay = true;
-  var newHtml = '<div class="landing_stage_large"><div class="landing_container_1"></div><div class="landing_nav"></div><div class="btn prev"></div><div class="btn next "></div></div>';
+  var newHtml = '<div class="landing_stage_large"><div class="landing_container_1"></div><div class="landing_nav"></div><div class="btn prev"></div><div class="btn next"></div></div>';
   $('.landing').html('').append(newHtml);
+
+  for (var i = 0; i < landingVars.totalPanels; i++) {
+    $('.landing_nav').append('<div>x</div>');
+  }
+
+  $('.landing').hover(function(){
+    landingVars.autoPlay = false;
+  }, function(){
+    landingVars.autoPlay = true;
+    landingVars.timePassed = Math.floor(landingVars.timeToChange / 2);
+  });
+
+  $('.landing_nav div').on('click', function(){
+    var navClicked = $(this).index();
+    landingVars.currentPanel = navClicked + 1;
+
+    $('.landing_stage_large').append('<div class="landing_container_2" style="opacity:0;"></div>');
+    $('.landing_container_2').html(landingVars.panelContent[navClicked]).animate({opacity:1}, landingVars.duration, function(){
+      $('.landing_container_1').remove();
+      $(this).addClass('landing_container_1').removeClass('landing_container_2');
+    });
+  });
+
+  $('.landing_nav div:first').trigger('click');
+
 }

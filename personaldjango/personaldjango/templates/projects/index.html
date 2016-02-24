@@ -7,11 +7,10 @@
       <h2 class="featurette-heading">{{ project.title|capfirst }}</h2>
       <span class="text-muted">{{ project.languages|upper }}</span>
       <p class="lead">{{ project.description }}</p>
+      <a class="btn btn-primary btn-lg btn-block" href="{{ project.project_url}}">Link to Project</a>
       </div>
       <div class="col-md-5">
         <img class="featurette-image img-responsive center-block" src="{{ project.image.url }}" alt="">
-      <a href="{% url 'project_detail' project.id %}">
-      </a>
     </div>
   </div>
 

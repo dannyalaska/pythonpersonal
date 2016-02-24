@@ -9,8 +9,9 @@ body {
 .row {
   font-family: 'Lato', sans-serif;
   font-size: 2em;
-  background-image: radial-gradient(#8cbfcc, #fff);
+  background-image: radial-gradient(#c2c4c3, #fff);
   padding: 12px;
+  border-bottom: 2px solid #fff;
 }
 
 .row h2 {

@@ -4,7 +4,7 @@ import os
 import sys
 
 # assuming your django settings file is at '/home/myusername/mysite/mysite/settings.py'
-path = '/home/dannyalaska/personaldjango'
+path = '/home/dannyalaska/pythonpersonal/personaldjango'
 if path not in sys.path:
     sys.path.append(path)
 

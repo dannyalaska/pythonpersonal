@@ -2,10 +2,15 @@
 
 {% block content %}
     <a href="{% url 'index' %}">Back to Project List</a>
-    <h2>{{ project.title|capfirst }}</h2>
-    <h4>Languages Used: {{project.languages|upper}}</h4>
-    <p>{{ project.description }}</p>
-    <img src="{{ project.image.url }}" alt="project {{project.id}} picture">
-    <a href="{{ project.project_url}}">Link to Project</a>
-
+    <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">{{ project.title|capfirst }}</h2>
+          <span class="text-muted">{{ project.languages|upper }}</span>
+          <p class="lead">{{ project.description }}</p>
+          <a class="btn btn-primary btn-lg btn-block" href="{{ project.project_url}}">Link to Project</a>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-responsive center-block" src="{{ project.image.url }}" alt="">
+        </div>
+      </div>
 {% endblock %}

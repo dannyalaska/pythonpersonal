@@ -20,16 +20,13 @@
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="#">
-                <img src="media/DannyLogo.png" alt="Danny!">
-              </a>
+                <a class="navbar-brand" href="/"><img src="/media/DannyLogo.png" alt="Danny!"></a>
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="/">Home</a>
         </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -65,8 +62,13 @@
           </div>
         </div>
       </div><!-- end of landing-->
-        {% block content %}
-        {% endblock content %}
+      <div class="container">
+        <h1 class="text-center">My Projects</h1>
+          <hr class="divider">
+              {% block content %}
+              {% endblock content %}
+          <hr class="divider">
+      </div>
     </div>
     <script src="{% static 'main.js' %}"></script>
   </body>

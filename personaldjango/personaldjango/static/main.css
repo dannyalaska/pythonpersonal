@@ -6,16 +6,16 @@ body {
   padding: 0px;
 }
 
-.row {
+.container {
   font-family: 'Lato', sans-serif;
   font-size: 2em;
-  background-image: radial-gradient(#c2c4c3, #fff);
+  background: white;
   padding: 12px;
   border-bottom: 2px solid #fff;
 }
 
-.row h2 {
-  font-size: 2.5em;
+.container h2 {
+  font-size: 1em;
 }
 
 .landing {
@@ -195,38 +195,24 @@ body {
   left: 0px;
 }
 
-.navbar {
-  margin: 0 auto;
+.navbar-brand img{
   position: relative;
+  height: 40px;
+  width: 70px;
 }
 
-.navbar .navbar-brand img {
-  height: 20px;
-  width: 60px;
-}
 .hero {
   width: 100%;
   height: 600;
   margin: 0 auto;
 }
 
-.scroll {
-  height: 400px;
-  width: 400px;
-}
 
 #content img{
-  width: 100%;
-  height: auto;
   padding: 0px;
   background-size: cover;
   position: relative;
-  border: 2px solid #000;
   border-radius: 5px;
-}
-
-#content img:hover {
-  border: 3px solid #186078;
 }
 
 @media screen and (max-width: 800px) {

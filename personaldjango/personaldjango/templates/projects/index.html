@@ -1,13 +1,17 @@
 {% extends "base.html" %}
   {% block content %}
   <div id="content">
+    <p id="summary" class="text-center"><em>I am a web developer with the drive and ambition of a Personal Trainer; I am dedicated to living my life to make the world around me a better place.  I use my excellent communication skills, boundless energy, and endless enthusiasm to push myself and everyone around me to reach and surpass their goals.</em></p>
+    <hr class="divider">
+    <h1 class="text-center"><strong>My Projects</strong></h1>
+    <hr class="divider">
   {% for project in projects %}
     <div class="col-sm-3 col-md-3">
       <div class="thumbnail">
         <a href="{% url 'project_detail' project.id %}"><img src="{{ project.image.url }}" alt="image:{{project.id}}"></a>
       </div>
       <div class="caption">
-        <h2>{{ project.title|capfirst }}</h2>
+        <h3 class="text-center">{{ project.title|capfirst }}</h3>
       </div>
       </div>
   {% endfor %}
